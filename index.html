@@ -99,3 +99,42 @@ button:hover{
 
 </body>
 </html>
+
+<div id="formBox">
+<form onsubmit="submitForm(event)">
+
+<input type="text" placeholder="Minecraft Username" required>
+
+<input type="text" placeholder="Discord Username" required>
+
+<input type="number" placeholder="Age" required>
+
+<select required>
+<option value="">Select Section</option>
+<option>PvPer</option>
+<option>Grinder</option>
+</select>
+
+<button type="submit">Submit Application</button>
+
+</form>
+</div>
+
+<div id="successBox" style="display:none;text-align:center;color:white;">
+<h2 style="color:#00ff88;">✅ Application Submitted!</h2>
+<p>Your application has been submitted successfully.</p>
+
+<a href="https://discord.gg/YOURINVITELINK" target="_blank">
+<button style="margin-top:15px;padding:12px 25px;background:#5865F2;color:white;border:none;border-radius:8px;cursor:pointer;">
+Join Team Kyron Discord
+</button>
+</a>
+</div>
+
+<script>
+function submitForm(e){
+e.preventDefault();
+document.getElementById("formBox").style.display="none";
+document.getElementById("successBox").style.display="block";
+}
+</script>
