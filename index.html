@@ -7,65 +7,85 @@
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    background:#0d1117;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
+background:#0d1117;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
 }
 
 .container{
-    background:#161b22;
-    width:90%;
-    max-width:450px;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 0 20px rgba(0,191,255,.3);
+background:#161b22;
+padding:30px;
+width:90%;
+max-width:450px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,191,255,.3);
 }
 
 h1{
-    color:#00bfff;
-    text-align:center;
-    margin-bottom:10px;
+text-align:center;
+color:#00bfff;
+margin-bottom:10px;
 }
 
 p{
-    color:#bdbdbd;
-    text-align:center;
-    margin-bottom:20px;
+text-align:center;
+color:#bdbdbd;
+margin-bottom:20px;
 }
 
 input,select{
-    width:100%;
-    padding:12px;
-    margin-bottom:15px;
-    background:#0d1117;
-    color:white;
-    border:1px solid #30363d;
-    border-radius:8px;
-    outline:none;
+width:100%;
+padding:12px;
+margin-bottom:15px;
+background:#0d1117;
+color:white;
+border:1px solid #30363d;
+border-radius:8px;
+outline:none;
 }
 
 button{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    background:#00bfff;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:#00bfff;
+color:white;
+font-size:16px;
+cursor:pointer;
 }
 
 button:hover{
-    background:#0099cc;
+background:#0099cc;
+}
+
+#success{
+display:none;
+text-align:center;
+}
+
+#success h2{
+color:#00ff88;
+margin-bottom:10px;
+}
+
+.discord-btn{
+display:inline-block;
+margin-top:15px;
+padding:12px 20px;
+background:#5865F2;
+color:white;
+text-decoration:none;
+border-radius:8px;
 }
 </style>
 </head>
@@ -74,10 +94,12 @@ button:hover{
 
 <div class="container">
 
+<div id="form">
+
 <h1>Team Kyron</h1>
 <p>Apply to Join Our Team</p>
 
-<form>
+<form onsubmit="submitApplication(event)">
 
 <input type="text" placeholder="Minecraft Username" required>
 
@@ -97,44 +119,27 @@ button:hover{
 
 </div>
 
-</body>
-</html>
+<div id="success">
 
-<div id="formBox">
-<form onsubmit="submitForm(event)">
+<h2>✅ Application Submitted!</h2>
 
-<input type="text" placeholder="Minecraft Username" required>
-
-<input type="text" placeholder="Discord Username" required>
-
-<input type="number" placeholder="Age" required>
-
-<select required>
-<option value="">Select Section</option>
-<option>PvPer</option>
-<option>Grinder</option>
-</select>
-
-<button type="submit">Submit Application</button>
-
-</form>
-</div>
-
-<div id="successBox" style="display:none;text-align:center;color:white;">
-<h2 style="color:#00ff88;">✅ Application Submitted!</h2>
 <p>Your application has been submitted successfully.</p>
 
-<a href="https://discord.gg/YOURINVITELINK" target="_blank">
-<button style="margin-top:15px;padding:12px 25px;background:#5865F2;color:white;border:none;border-radius:8px;cursor:pointer;">
+<a class="discord-btn" href="https://discord.gg/wEtCZ7DdsF" target="_blank">
 Join Team Kyron Discord
-</button>
 </a>
+
+</div>
+
 </div>
 
 <script>
-function submitForm(e){
+function submitApplication(e){
 e.preventDefault();
-document.getElementById("formBox").style.display="none";
-document.getElementById("successBox").style.display="block";
+document.getElementById("form").style.display="none";
+document.getElementById("success").style.display="block";
 }
 </script>
+
+</body>
+</html>
