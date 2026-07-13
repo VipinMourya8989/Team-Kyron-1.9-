@@ -100,8 +100,7 @@ border-radius:8px;
 <h1>Team Kyron</h1>
 <p>Apply to Join Our Team</p>
 
-<form 
-action="https://formsubmit.co/el/jazicu" method="POST">
+<form id="applicationForm" action="https://formsubmit.co/el/jazicu" method="POST">
 
 <input type="text" name="minecraft_username" placeholder="Minecraft Username" required>
 
@@ -115,7 +114,8 @@ action="https://formsubmit.co/el/jazicu" method="POST">
 <option>Grinder</option>
 <option>Allrounder</option>
 </select>
-
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
 <button type="submit">Submit Application</button>
 
 </form>
@@ -137,11 +137,33 @@ Join Team Kyron Discord
 </div>
 
 <script>
-function submitApplication(e){
-e.preventDefault();
-document.getElementById("form").style.display="none";
-document.getElementById("success").style.display="block";
-}
+const form = document.getElementById("applicationForm");
+
+form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    try {
+        const response = await fetch(form.action, {
+            method: "POST",
+            body: data,
+            headers: {
+                "Accept": "application/json"
+            }
+        });
+
+        if (response.ok) {
+            document.getElementById("form").style.display = "none";
+            document.getElementById("success").style.display = "block";
+            form.reset();
+        } else {
+            alert("Failed to submit application.");
+        }
+    } catch (err) {
+        alert("Network error. Please try again.");
+    }
+});
 </script>
 
 </body>
