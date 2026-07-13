@@ -100,18 +100,20 @@ border-radius:8px;
 <h1>Team Kyron</h1>
 <p>Apply to Join Our Team</p>
 
-<form onsubmit="submitApplication(event)">
+<form 
+action="https://formsubmit.co/el/jazicu" method="POST">
 
-<input type="text" placeholder="Minecraft Username" required>
+<input type="text" name="minecraft_username" placeholder="Minecraft Username" required>
 
-<input type="text" placeholder="Discord Username" required>
+<input type="text" name="discord_username" placeholder="Discord Username" required>
 
-<input type="number" placeholder="Age" required>
+<input type="number" name="age" placeholder="Age" required>
 
-<select required>
-<option value="">Select Section</option>
-<option>PvPer</option>
+<select name="role" required>
+<option value="">Select Role</option>
+<option>Pvper</option>
 <option>Grinder</option>
+<option>Allrounder</option>
 </select>
 
 <button type="submit">Submit Application</button>
